@@ -77,13 +77,11 @@ textarea:focus {
 }
 
 .list-of-task {
-  /* background-color: #f6f6f6; */
   padding-bottom: 5px;
   border-bottom: 1px solid #e8e8e8;
-}
-
-.list-of-task p {
-  margin-bottom: -10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .text-color {
