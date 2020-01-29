@@ -14,15 +14,11 @@ const todo = () => {
     del = div.children[1];
     del.addEventListener("click", function(e) {
       let myTask = e.target.parentNode;
-
-      myTask.remove(myTask);
-      // console.log(myTask);
+      myTask.remove(div);
     });
   };
 
-  const deleteTodo = () => {
-    // console.log("ko");
-  };
+  const deleteTodo = () => {};
 
   deleteTodo();
   addTaskButton.addEventListener("click", addTodo);
