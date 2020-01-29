@@ -1,34 +1,31 @@
-{
-  var addTaskButton = document.getElementById("add-task-button");
-  var taskForm = document.getElementById("task-form");
-
-  var div;
-  var task;
-  var icon;
-
-  addTaskButton.onclick = addTask;
-
-  function addTask(e) {
+const todo = () => {
+  let addTaskButton = document.getElementById("add-task-button");
+  let taskForm = document.getElementById("task-form");
+  let div, del;
+  const addTodo = (e, inputTask) => {
     e.preventDefault();
-    var inputTask = document.getElementById("new-task").value;
+    inputTask = document.getElementById("new-task").value;
+    div = document.createElement("div");
+    div.innerHTML = `<p class="task">${inputTask}</p><i class="fas fa-times-circle delete"></i>`;
+    document.getElementById("display-task").append(div);
+    div.classList.add("list-of-task");
+    taskForm.reset();
 
-    if (inputTask === "") {
-      var validationMessage = document.getElementById("validation-message");
-      validationMessage.style.display = "block";
-    } else {
-      div = document.createElement("div");
-      task = document.createElement("p");
-      icon = document.createElement("i");
-      var textContent = document.createTextNode(inputTask);
+    del = div.children[1];
+    del.addEventListener("click", function(e) {
+      let myTask = e.target.parentNode;
 
-      icon.classList.add("fas", "fa-times-circle");
-      task.appendChild(textContent);
-      div.append(task, icon);
-      div.classList.add("list-of-task");
-      document.getElementById("display-task").appendChild(div);
+      myTask.remove(myTask);
+      // console.log(myTask);
+    });
+  };
 
-      // console.log(div);
-      taskForm.reset();
-    }
-  }
-}
+  const deleteTodo = () => {
+    // console.log("ko");
+  };
+
+  deleteTodo();
+  addTaskButton.addEventListener("click", addTodo);
+};
+
+todo();
