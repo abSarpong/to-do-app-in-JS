@@ -1,27 +1,33 @@
-const todo = () => {
-  let addTaskButton = document.getElementById("add-task-button");
-  let taskForm = document.getElementById("task-form");
-  let div, del;
-  const addTodo = (e, inputTask) => {
-    e.preventDefault();
-    inputTask = document.getElementById("new-task").value;
-    div = document.createElement("div");
-    div.innerHTML = `<p class="task">${inputTask}</p><i class="fas fa-times-circle delete"></i>`;
-    document.getElementById("display-task").append(div);
-    div.classList.add("list-of-task");
-    taskForm.reset();
+const todoApp = () => {
+  let addTodoButton = document.getElementById("add-todo-button");
+  let todoForm = document.getElementById("todo-form");
+  let div, deleteTodoButton;
 
-    del = div.children[1];
-    del.addEventListener("click", function(e) {
-      let myTask = e.target.parentNode;
-      myTask.remove(div);
-    });
+  const addTodo = (e, input) => {
+    e.preventDefault();
+    input = document.getElementById("new-task").value;
+    div = document.createElement("div");
+    div.innerHTML = `<p class="task">${input}</p><i class="fas fa-times-circle delete"></i>`;
+    div.classList.add("list-of-task");
+    todoForm.reset();
+
+    deleteTodoButton = div.children[1];
+
+    const deleteTodo = e => {
+      let todo = e.target.parentNode;
+      todo.remove(div);
+    };
+
+    if (input === "") {
+      document.getElementById("validation-message").style.display = "block";
+    } else {
+      document.getElementById("display-task").append(div);
+    }
+
+    deleteTodoButton.addEventListener("click", deleteTodo);
   };
 
-  const deleteTodo = () => {};
-
-  deleteTodo();
-  addTaskButton.addEventListener("click", addTodo);
+  addTodoButton.addEventListener("click", addTodo);
 };
 
-todo();
+todoApp();

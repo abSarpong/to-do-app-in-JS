@@ -4,7 +4,7 @@
 }
 
 .wrapper {
-  width: 300px;
+  width: 450px;
   margin: 0 auto;
 }
 
@@ -34,11 +34,20 @@
 textarea {
   border-color: #e8e8e8;
   border-radius: 3px;
-  padding: 10px;
+  padding: 10px 10px 10px 40px;
   width: 100%;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+}
+input {
+  border: 1px solid #e8e8e8;
+  height: 34px;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 5px;
+  width: 300px;
+  margin-right: 5px;
 }
 
 textarea:focus {
@@ -58,7 +67,7 @@ textarea:focus {
 }
 
 .button {
-  height: 40px;
+  height: 45px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   background: #8e44ad;
@@ -78,7 +87,6 @@ textarea:focus {
 
 .list-of-task {
   padding-bottom: 5px;
-  /* border-bottom: 1px solid #e8e8e8; */
   display: flex;
   justify-content: space-between;
   align-items: center;
