@@ -61,7 +61,7 @@ textarea:focus {
 
 .small-heading {
   font-family: "Segoe UI";
-  font-weight: 5600;
+  font-weight: 700;
   font-size: 20px;
   color: #000000;
 }
@@ -102,4 +102,17 @@ textarea:focus {
   font-style: italic;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
+}
+.empty-image {
+  display: flex;
+  justify-content: flex-start;
+}
+.very-small-heading {
+  font-weight: 600;
+  color: #000000;
+  font-size: 18px;
+  font-family: "Segoe UI";
+}
+.no-margin-y {
+  margin-top: -10px;
 }

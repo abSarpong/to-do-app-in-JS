@@ -21,6 +21,9 @@ const todoApp = () => {
     if (input === "") {
       document.getElementById("validation-message").style.display = "block";
     } else {
+      let emptyImage = document.getElementById("empty-space");
+      emptyImage.style.display = "none";
+      console.log(emptyImage);
       document.getElementById("display-task").append(div);
     }
 
