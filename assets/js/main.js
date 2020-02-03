@@ -1,51 +1,35 @@
-{
-    var addTaskButton = document.getElementById("add-task-button");
-    var taskForm = document.getElementById("task-form");
+const todoApp = () => {
+    let addTodoButton = document.getElementById("add-todo-button");
+    let todoForm = document.getElementById("todo-form");
+    let div, deleteTodoButton;
 
-    var div;
-    var task;
-    var icon;
-    var counter = 0;
-
-    addTaskButton.onclick = addTask;
-
-    function addTask(e) {
+    const addTodo = (e, input) => {
         e.preventDefault();
-        var inputTask = document.getElementById("new-task").value;
+        input = document.getElementById("new-task").value;
+        div = document.createElement("div");
+        div.innerHTML = `<p class="task">${input}</p><i class="fas fa-times-circle delete"></i>`;
+        div.classList.add("list-of-task");
+        todoForm.reset();
 
-        if (inputTask === "") {
-            var validationMessage = document.getElementById("validation-message");
-            validationMessage.style.display = "block";
+        deleteTodoButton = div.children[1];
+
+        const deleteTodo = e => {
+            let todo = e.target.parentNode;
+            todo.remove(div);
+        };
+
+        if (input === "") {
+            document.getElementById("validation-message").style.display = "block";
         } else {
-            var delEle = document.createElement('eleTag');
-            delEle.setAttribute('id', counter);
-            var newEle = document.getElementById(counter);
-            console.log(newEle);
-            // counter++;
-            div = document.createElement("div");
-            task = document.createElement("p");
-            icon = document.createElement("i");
-            var textContent = document.createTextNode(inputTask);
-
-            icon.classList.add("fas", "fa-times-circle");
-            task.appendChild(textContent);
-            div.append(task, icon, counter);
-            div.classList.add("list-of-task");
-            document.getElementById("display-task").appendChild(div);
-
-            console.log(div);
-            taskForm.reset();
+            let emptyImage = document.getElementById("empty-space");
+            emptyImage.style.display = "none";
+            document.getElementById("display-task").append(div);
         }
-        icon.onclick = function deleteTask() {
-            // alert("clicked");
-            // uId();
-            div.parentNode.removeChild(div);
-        }
-    }
 
-    // function uId() {
-    //     // counter = counter + 1;
-    //     // console.log(counter);
-    //     div.parentNode.removeChild(div);
-    // }
-}
+        deleteTodoButton.addEventListener("click", deleteTodo);
+    };
+
+    addTodoButton.addEventListener("click", addTodo);
+};
+
+todoApp();
