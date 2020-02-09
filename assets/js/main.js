@@ -7,7 +7,8 @@ const todoApp = () => {
         e.preventDefault();
         input = document.getElementById("new-task").value;
         div = document.createElement("div");
-        div.innerHTML = `<p class="task">${input}</p><i class="fas fa-times-circle delete"></i>`;
+        div.innerHTML = `<p class="task">${input}</p><i class="fa fa-times-circle delete"></i>`;
+        div.style.cursor = 'pointer';
         div.classList.add("list-of-task");
         todoForm.reset();
 
